@@ -5,10 +5,14 @@ package calculator;
  * @author Admin
  */
 public class calculatorUI extends javax.swing.JFrame {
-        String Result;
-        char operand;
-    public calculatorUI() {
 
+    String Result;
+    char operand;
+    History history;
+
+    public calculatorUI(String Log) {
+        History history = new History(Log);
+        this.history = history;
         initComponents();
     }
 
@@ -313,8 +317,10 @@ public class calculatorUI extends javax.swing.JFrame {
 
     private void ButtonResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonResultActionPerformed
         Result = ResultOperation.getText();
-        calculator calc = new calculator (Result,operand);
+        history.writeInFile(Result);
+        calculator calc = new calculator(Result, operand);
         ResultOperation.setText(Double.toString(calc.ResultFunction()));
+
     }//GEN-LAST:event_ButtonResultActionPerformed
 
     private void ButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClearActionPerformed

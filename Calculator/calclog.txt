@@ -1,0 +1,5 @@
+Login - Alina; Date - 11.1.2017; Time - 1:9:52; Operation 1*5+6
+Login - Alina; Date - 11.1.2017; Time - 1:10:12; Operation 1*5
+Login - Alina; Date - 11.1.2017; Time - 1:10:15; Operation 5.0*6
+Login - Alina; Date - 11.1.2017; Time - 1:10:22; Operation 8*5
+Login - Alina; Date - 11.1.2017; Time - 1:10:27; Operation 10/2

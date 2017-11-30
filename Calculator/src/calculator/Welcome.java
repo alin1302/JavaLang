@@ -25,7 +25,7 @@ public class Welcome {
             String LogTxt = reader.readLine();
             String PassTxt = reader.readLine();
             if (LogTxt.equals(Log) && PassTxt.equals(Pass)) {
-                new calculatorUI().setVisible(true);
+                new calculatorUI(Log).setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrectly! Please try again.");
             }
