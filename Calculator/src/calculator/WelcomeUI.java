@@ -19,9 +19,9 @@ public class WelcomeUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         Login = new javax.swing.JTextField();
-        Password = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         SignIn = new javax.swing.JButton();
+        Password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,13 +49,13 @@ public class WelcomeUI extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(Password)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addComponent(SignIn)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +65,7 @@ public class WelcomeUI extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -74,7 +74,6 @@ public class WelcomeUI extends javax.swing.JFrame {
         );
 
         Login.getAccessibleContext().setAccessibleName("log");
-        Password.getAccessibleContext().setAccessibleName("pass");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,7 +90,7 @@ public class WelcomeUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Login;
-    private javax.swing.JTextField Password;
+    private javax.swing.JPasswordField Password;
     private javax.swing.JButton SignIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

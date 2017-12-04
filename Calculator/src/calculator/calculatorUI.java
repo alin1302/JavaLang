@@ -7,12 +7,13 @@ package calculator;
 public class calculatorUI extends javax.swing.JFrame {
 
     String Result;
-    char operand;
-    History history;
+    String Log;
+    char operator;
+    CalculationThread thread;
 
     public calculatorUI(String Log) {
-        History history = new History(Log);
-        this.history = history;
+        this.thread = new CalculationThread(Log);
+        this.Log = Log;
         initComponents();
     }
 
@@ -295,32 +296,31 @@ public class calculatorUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonPointActionPerformed
 
     private void ButtonSumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSumActionPerformed
-        operand = '+';
-        ResultOperation.setText(ResultOperation.getText() + operand);
-
+        operator = '+';
+        ResultOperation.setText(ResultOperation.getText() + operator);
     }//GEN-LAST:event_ButtonSumActionPerformed
 
     private void ButtonSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSubActionPerformed
-        operand = '-';
-        ResultOperation.setText(ResultOperation.getText() + operand);
+        operator = '-';
+        ResultOperation.setText(ResultOperation.getText() + operator);
     }//GEN-LAST:event_ButtonSubActionPerformed
 
     private void ButtonMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMultActionPerformed
-        operand = '*';
-        ResultOperation.setText(ResultOperation.getText() + operand);
+        operator = '*';
+        ResultOperation.setText(ResultOperation.getText() + operator);
     }//GEN-LAST:event_ButtonMultActionPerformed
 
     private void ButtonDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDivActionPerformed
-        operand = '/';
-        ResultOperation.setText(ResultOperation.getText() + operand);
+        operator = '/';
+        ResultOperation.setText(ResultOperation.getText() + operator);
     }//GEN-LAST:event_ButtonDivActionPerformed
 
     private void ButtonResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonResultActionPerformed
         Result = ResultOperation.getText();
-        history.writeInFile(Result);
-        calculator calc = new calculator(Result, operand);
-        ResultOperation.setText(Double.toString(calc.ResultFunction()));
-
+      //   thread.start();
+        thread.writeInFile(Result);
+        calculator calc = new calculator(Result);
+        ResultOperation.setText(Double.toString(calc.PriorityCalculation()));
     }//GEN-LAST:event_ButtonResultActionPerformed
 
     private void ButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClearActionPerformed
