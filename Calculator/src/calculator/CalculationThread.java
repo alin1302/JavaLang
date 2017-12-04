@@ -7,26 +7,28 @@ import java.util.*;
  *
  * @author Admin
  */
-public class CalculationThread  /* extends Thread */ {
+public class CalculationThread   extends Thread  {
 
     public String Log;
     public File file;
     FileWriter fr;
     public int count;
     public int numFile;
+    public String PesultOperation;
 
-    public CalculationThread(String Log) {
+    public CalculationThread(String Log, String ResultOperation) {
         this.Log = Log;
         this.numFile = 1;
+        this.PesultOperation = ResultOperation;
         newFile();
     }
 
-    /*
+    
     @Override
     public void run() {
-        writeInFile(ResultOperation);
+        writeInFile(PesultOperation);
     }
-    */
+    
     public void newFile() {
         count = 0;
         try {
@@ -38,6 +40,7 @@ public class CalculationThread  /* extends Thread */ {
         }
     }
 
+    
     public void writeInFile(String ResultOperation) {
         GregorianCalendar gcalendar = new GregorianCalendar();
         try {
@@ -46,7 +49,7 @@ public class CalculationThread  /* extends Thread */ {
             FileWriter fr = new FileWriter(file.getPath(), true);
             fr.write(string);
             fr.close();
-            if (count == 3) {
+            if (count == 10) {
                 file.renameTo(new File("G:\\GitProjects\\Java\\Calculator\\calclog" + numFile + ".txt"));
                 numFile++;
                 newFile();

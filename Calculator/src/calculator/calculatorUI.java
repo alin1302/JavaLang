@@ -12,7 +12,7 @@ public class calculatorUI extends javax.swing.JFrame {
     CalculationThread thread;
 
     public calculatorUI(String Log) {
-        this.thread = new CalculationThread(Log);
+        this.thread = new CalculationThread(Log,Result);
         this.Log = Log;
         initComponents();
     }
@@ -317,8 +317,8 @@ public class calculatorUI extends javax.swing.JFrame {
 
     private void ButtonResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonResultActionPerformed
         Result = ResultOperation.getText();
-      //   thread.start();
-        thread.writeInFile(Result);
+         thread.start();
+      //  thread.writeInFile(Result);
         calculator calc = new calculator(Result);
         ResultOperation.setText(Double.toString(calc.PriorityCalculation()));
     }//GEN-LAST:event_ButtonResultActionPerformed
