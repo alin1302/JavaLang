@@ -1,16 +1,28 @@
 package calculator;
 
+import java.io.*;
+import java.net.Socket;
+import javax.swing.*;
+
 /**
  *
  * @author Admin
  */
 public class WelcomeUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form WelcomeUI
-     */
+    private Socket socket;
+    private DataInputStream in;
+    private DataOutputStream out;
+
     public WelcomeUI() {
-        initComponents();
+        try {
+            initComponents();
+            socket = new Socket("localhost", 12345);
+            in = new DataInputStream(socket.getInputStream());
+            out = new DataOutputStream(socket.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -80,13 +92,21 @@ public class WelcomeUI extends javax.swing.JFrame {
 
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
 
-        String log = Login.getText();
+        String login = Login.getText();
         String pass = Password.getText();
-        Welcome welcome = new Welcome(log, pass);
-        welcome.verification();
-
+        try {
+            out.writeUTF(login);
+            out.writeUTF(pass);
+            if (in.readBoolean()) {
+                new calculatorUI(login, socket).setVisible(true);
+                System.out.println("Welcome");
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrectly! Please try again.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_SignInActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Login;

@@ -30,6 +30,7 @@ public class Operation {
         if (operation == '/') {
             operations = Operations.QUO;
         }
+        doCalculation();
     }
 
     public double doCalculation() {
@@ -52,4 +53,15 @@ public class Operation {
         return result;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Operation operation = (Operation) o;
+        if (Double.compare(operation.operand1, operand1) != 0) return false;
+        if (Double.compare(operation.operand2, operand2) != 0) return false;
+        if (Double.compare(operation.result, result) != 0) return false;
+        return operations == operation.operations;
+    }
 }

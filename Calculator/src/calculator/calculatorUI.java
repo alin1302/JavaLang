@@ -1,5 +1,7 @@
 package calculator;
 
+import java.io.*;
+import java.net.Socket;
 /**
  *
  * @author Admin
@@ -7,14 +9,18 @@ package calculator;
 public class calculatorUI extends javax.swing.JFrame {
 
     String Result;
-    String Log;
+    String Login;
     char operator;
     CalculationThread thread;
+    CacheOperations cache;
+    Socket socket;
 
-    public calculatorUI(String Log) {
-        this.thread = new CalculationThread(Log,Result);
-        this.Log = Log;
+    public calculatorUI(String Login, Socket socket) {
+        cache = new CacheOperations();
+        this.Login = Login;
+        this.socket = socket;
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -317,16 +323,13 @@ public class calculatorUI extends javax.swing.JFrame {
 
     private void ButtonResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonResultActionPerformed
         Result = ResultOperation.getText();
-         thread.start();
-      //  thread.writeInFile(Result);
-        calculator calc = new calculator(Result);
+        calculator calc = new calculator(Result, cache, socket);
         ResultOperation.setText(Double.toString(calc.PriorityCalculation()));
     }//GEN-LAST:event_ButtonResultActionPerformed
 
     private void ButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonClearActionPerformed
         ResultOperation.setText("");
     }//GEN-LAST:event_ButtonClearActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button0;
