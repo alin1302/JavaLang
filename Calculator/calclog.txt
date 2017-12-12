@@ -1,0 +1,6 @@
+1) Login - Alina; Date - 11.12.2017; Time - 3:42:46; Operation 1.0 + 1.0
+2) Login - Alina; Date - 11.12.2017; Time - 3:42:50; Operation 2.0 + 2.0
+3) Login - Alina; Date - 11.12.2017; Time - 3:42:54; Operation 3.0 + 3.0
+4) Login - Alina; Date - 11.12.2017; Time - 3:43:16; Operation 3.0 * 4.0
+5) Login - Alina; Date - 11.12.2017; Time - 3:43:16; Operation 12.0 / 2.0
+6) Login - Alina; Date - 11.12.2017; Time - 3:43:16; Operation 2.0 + 6.0

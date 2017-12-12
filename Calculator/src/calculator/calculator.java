@@ -103,7 +103,6 @@ public class calculator {
                     cache.Add(operation);
                     try {
                         out.writeBoolean(true);
-                        out.writeUTF(ResultLog);
                         out.writeDouble(operation.operand1);
                         out.writeDouble(operation.operand2);
                         switch (operation.operations) {
@@ -148,7 +147,6 @@ public class calculator {
                     cache.Add(operation);
                     try {
                         out.writeBoolean(true);
-                        out.writeUTF(ResultLog);
                         out.writeDouble(operation.operand1);
                         out.writeDouble(operation.operand2);
                         switch (operation.operations) {

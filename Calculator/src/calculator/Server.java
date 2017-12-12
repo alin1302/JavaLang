@@ -32,14 +32,15 @@ public class Server {
 
             boolean work = in.readBoolean();
             while (work) {
-                String ResultLog = in.readUTF();
+                double operand1 = in.readDouble();
+                double operand2 = in.readDouble();
+                char operation = in.readChar();
+                
+                String ResultLog = operand1 + " " + operation + " " + operand2;
                 System.out.println("Your input: " + ResultLog);
                 CalculationThread thread = new CalculationThread(Login, ResultLog);
                 thread.start();
                 
-                double operand1 = in.readDouble();
-                double operand2 = in.readDouble();
-                char operation = in.readChar();
                 Operation serveroperation = new Operation(operand1, operand2, operation);
                 out.writeDouble(serveroperation.result);
                 System.out.println("Operation is executed: " + serveroperation.result);
